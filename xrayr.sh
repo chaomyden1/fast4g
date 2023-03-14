@@ -52,10 +52,14 @@ install_XrayR() {
 	[[ -z $(type -P curl) ]] && ${PACKAGE_UPDATE[int]} && ${PACKAGE_INSTALL[int]} curl
 	[[ -z $(type -P socat) ]] && ${PACKAGE_UPDATE[int]} && ${PACKAGE_INSTALL[int]} socat
 	bash <(curl -Ls https://raw.githubusercontent.com/longyi8/XrayR/master/install.sh)
+	sudo ufw allow 80/tcp
+	sudo ufw allow 443/tcp
+	sudo ufw allow 80
+	sudo ufw allow 443
 }
 
 makeConfig() {
-    echo "------  FAST4G.NET ---------"
+    echo "------  FAST4G.ME ---------"
 	read -p "Loại website của bạn: V2board"
 	echo "---------------"
 	read -p "Link website: https://fast4g.me/"
